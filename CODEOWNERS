@@ -446,6 +446,8 @@ build.json @home-assistant/supervisor
 /tests/components/growatt_server/ @indykoning @muppet3000 @JasperPlant
 /homeassistant/components/guardian/ @bachya
 /tests/components/guardian/ @bachya
+/homeassistant/components/ha_sniffer/ @antonio-boiano
+/tests/components/ha_sniffer/ @antonio-boiano
 /homeassistant/components/habitica/ @ASMfreaK @leikoilja
 /tests/components/habitica/ @ASMfreaK @leikoilja
 /homeassistant/components/hardkernel/ @home-assistant/core

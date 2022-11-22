@@ -2101,6 +2101,12 @@
       "config_flow": true,
       "iot_class": "local_polling"
     },
+    "ha_sniffer": {
+      "name": "154_sniffer",
+      "integration_type": "hub",
+      "config_flow": true,
+      "iot_class": "local_polling"
+    },
     "habitica": {
       "name": "Habitica",
       "integration_type": "hub",

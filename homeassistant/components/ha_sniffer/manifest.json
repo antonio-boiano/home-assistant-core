@@ -1,0 +1,26 @@
+{
+  "domain": "ha_sniffer",
+  "name": "154_sniffer",
+  "config_flow": true,
+  "documentation": "https://www.home-assistant.io/integrations/ha_sniffer",
+  "requirements": [
+    "pyusb==1.2.1",
+    "pycryptodome==3.15.0",
+    "pyserial==3.5",
+    "pygcrypt==1.0.1",
+    "scapy==2.4.5"
+  ],
+  "usb": [
+    {
+      "vid": "0451",
+      "pid": "16AE"
+    }
+  ],
+  "ssdp": [],
+  "zeroconf": [],
+  "homekit": {},
+  "dependencies": [],
+  "after_dependencies": ["onboarding", "usb", "file_upload", "file", "zha"],
+  "codeowners": ["@antonio-boiano"],
+  "iot_class": "local_polling"
+}
