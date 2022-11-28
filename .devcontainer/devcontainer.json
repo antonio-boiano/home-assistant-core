@@ -37,6 +37,9 @@
       }
     },
     "terminal.integrated.defaultProfile.linux": "zsh",
+    "mounts": [
+      "type=bind,source=/dev/ttyACM0,target=/dev/ttyACM0"
+    ],
     "yaml.customTags": [
       "!input scalar",
       "!secret scalar",
