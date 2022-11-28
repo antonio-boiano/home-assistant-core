@@ -163,7 +163,6 @@ FLOWS = {
         "guardian",
         "ha_sniffer",
         "habitica",
-        "hangouts",
         "harmony",
         "heos",
         "here_travel_time",
