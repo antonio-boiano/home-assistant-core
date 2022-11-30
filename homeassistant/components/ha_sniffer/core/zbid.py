@@ -6,12 +6,10 @@ Compatible with Wireshark 1.1.2 and later (jwright@willhackforsushi.com)
 The -p flag adds CACE PPI headers to the PCAP (ryan@rmspeers.com)
 """
 
-import asyncio
 import logging
 import subprocess
 import sys
 
-from homeassistant.core import HomeAssistant
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -38,25 +36,11 @@ class devList:
 
 class zbId:
 
-    hass: HomeAssistant
 
     def __init__(self) -> None:
         self.dev_desc: str | None = None
         self.dev_path: str | None = None
 
-    """Not Used"""
-    # @contextlib.asynccontextmanager
-    async def detect_radio_devices(self) -> bool:
-        loop = asyncio.get_event_loop()
-        dev_list = await loop.run_in_executor(None, kbutils.devlist, None)
-        if dev_list:
-            for x in dev_list:
-                self.device_path = x[0]
-                self.dev_desc = x[1]
-
-            return True
-
-        return False
 
     def devlist(self):
         dev_list = kbutils.devlist()
