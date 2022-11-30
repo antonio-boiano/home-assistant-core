@@ -15,9 +15,8 @@ from homeassistant.core import HomeAssistant
 from homeassistant.data_entry_flow import FlowHandler, FlowResult
 from homeassistant.exceptions import HomeAssistantError
 
-from .const import DEFAULT_NAME, DOMAIN
+from .const import DEFAULT_NAME, DOMAIN , CONF_DEVICE_PATH
 
-CONF_DEVICE_PATH = "path"
 CONF_MANUAL_PATH = "Enter Manually"
 
 OPTIONS_INTENT_MIGRATE = "intent_migrate"
