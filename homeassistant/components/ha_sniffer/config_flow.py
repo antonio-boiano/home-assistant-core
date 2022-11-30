@@ -36,7 +36,7 @@ except ImportError:
     _LOGGER.warning("killerbee NOT installed, try to installing it")
     install("git+https://github.com/riverloopsec/killerbee.git#egg=killerbee")
 
-from .zbid import zbId
+from .core.zbid import zbId
 
 
 class BaseSniffingFlow(FlowHandler):
