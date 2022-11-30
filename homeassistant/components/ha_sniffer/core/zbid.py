@@ -43,10 +43,10 @@ class zbId:
 
 
     def devlist(self):
+        list = []
         dev_list = kbutils.devlist()
         if dev_list:
-            list = []
             for x in dev_list:
                 list.append(devList(x[0], x[1]))
-            return list
-        return None
+        return list
+        
