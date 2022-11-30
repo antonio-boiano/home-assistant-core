@@ -1139,9 +1139,6 @@ pyfronius==0.7.1
 # homeassistant.components.ifttt
 pyfttt==0.3
 
-# homeassistant.components.ha_sniffer
-pygcrypt==1.0.1
-
 # homeassistant.components.hvv_departures
 pygti==0.9.3
 
@@ -1778,6 +1775,9 @@ wallbox==0.4.12
 
 # homeassistant.components.folder_watcher
 watchdog==2.1.9
+
+# homeassistant.components.ha_sniffer
+wheel==0.38.4
 
 # homeassistant.components.whirlpool
 whirlpool-sixth-sense==0.17.0

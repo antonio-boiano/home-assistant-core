@@ -1611,9 +1611,6 @@ pyfttt==0.3
 # homeassistant.components.skybeacon
 pygatt[GATTTOOL]==4.0.5
 
-# homeassistant.components.ha_sniffer
-pygcrypt==1.0.1
-
 # homeassistant.components.gtfs
 pygtfs==0.1.7
 
@@ -2559,6 +2556,9 @@ waterfurnace==1.1.0
 
 # homeassistant.components.cisco_webex_teams
 webexteamssdk==1.1.1
+
+# homeassistant.components.ha_sniffer
+wheel==0.38.4
 
 # homeassistant.components.whirlpool
 whirlpool-sixth-sense==0.17.0

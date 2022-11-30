@@ -7,7 +7,6 @@
     "pyusb==1.2.1",
     "pycryptodome==3.15.0",
     "pyserial==3.5",
-    "pygcrypt==1.0.1",
     "scapy==2.4.5",
     "wheel==0.38.4"
   ],
@@ -15,8 +14,13 @@
     {
       "vid": "0451",
       "pid": "16AE"
+    },
+    {
+      "vid": "0403",
+      "pid": "6001"
     }
   ],
+  "integration_type": "system",
   "ssdp": [],
   "zeroconf": [],
   "homekit": {},
