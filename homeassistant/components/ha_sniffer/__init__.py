@@ -1,19 +1,21 @@
 """The 154_sniffer integration."""
-from __future__ import annotations
+#from __future__ import annotations
 
-ATTR_NAME = "name"
-DEFAULT_NAME = "World"
+
+
+#ATTR_NAME = "name"
+#DEFAULT_NAME = "World"
 
 # List the platforms that you want to support.
 # For your initial PR, limit it to 1 platform.
 # PLATFORMS: list[Platform] = [Platform.LIGHT]
 
 
-async def async_setup(hass, config):
-    hass.states.async_set("hello_state.world", "Paulus")
+#async def async_setup(hass, config):
+#    hass.states.async_set("hello_state.world", "Paulus")
 
     # Return boolean to indicate that initialization was successful.
-    return True
+#    return True
 
 
 # async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:

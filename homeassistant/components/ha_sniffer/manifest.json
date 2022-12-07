@@ -1,13 +1,14 @@
 {
   "domain": "ha_sniffer",
   "name": "154_sniffer",
-  "config_flow": true,
+  "config_flow": false,
   "documentation": "https://www.home-assistant.io/integrations/ha_sniffer",
   "requirements": [
     "pyusb==1.2.1",
     "pycryptodome==3.15.0",
     "pyserial==3.5",
     "scapy==2.4.5",
+    "reactivex==4.0.4",
     "wheel==0.38.4"
   ],
   "usb": [
