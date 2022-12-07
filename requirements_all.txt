@@ -2173,6 +2173,9 @@ raincloudy==0.0.7
 # homeassistant.components.raspyrfm
 raspyrfm-client==1.2.8
 
+# homeassistant.components.ha_sniffer
+reactivex==4.0.4
+
 # homeassistant.components.rainmachine
 regenmaschine==2022.11.0
 

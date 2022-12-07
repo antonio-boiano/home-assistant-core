@@ -2,10 +2,7 @@
 from __future__ import annotations
 
 import logging
-import subprocess
-import sys
 from typing import Any
-#import asyncio
 
 import voluptuous as vol
 
@@ -16,7 +13,10 @@ from homeassistant.core import HomeAssistant
 from homeassistant.data_entry_flow import FlowHandler, FlowResult
 from homeassistant.exceptions import HomeAssistantError
 
-from .const import DEFAULT_NAME, DOMAIN , CONF_DEVICE_PATH
+from .const import CONF_DEVICE_PATH, DEFAULT_NAME, DOMAIN
+
+# import asyncio
+
 
 CONF_MANUAL_PATH = "Enter Manually"
 
@@ -26,8 +26,8 @@ OPTIONS_INTENT_RECONFIGURE = "intent_reconfigure"
 
 _LOGGER = logging.getLogger(__name__)
 
-from .core.zbid import zbId
 from .core.zbdump import zbDump
+from .core.zbid import zbId
 
 
 class BaseSniffingFlow(FlowHandler):
@@ -54,13 +54,18 @@ class BaseSniffingFlow(FlowHandler):
         self._hass = hass
         self._radio_mgr.hass = hass
 
-    async def async_step_choose_serial_port(self, user_input: dict[str, Any] | None = None) -> FlowResult:
+    async def async_step_choose_serial_port(
+        self, user_input: dict[str, Any] | None = None
+    ) -> FlowResult:
         """Choose a serial port."""
-        
+
         ports = await self.hass.async_add_executor_job(self._radio_mgr.devlist)
-        list_of_ports = [f"s/n: {p.dev_path or 'n/a'}" + (f" - {p.dev_desc}" if p.dev_desc else "")for p in ports]
-        
-        #if not list_of_ports:
+        list_of_ports = [
+            f"s/n: {p.dev_path or 'n/a'}" + (f" - {p.dev_desc}" if p.dev_desc else "")
+            for p in ports
+        ]
+
+        # if not list_of_ports:
         #    return await self.async_step_manual_pick_radio_type()
 
         list_of_ports.append(CONF_MANUAL_PATH)
@@ -80,15 +85,15 @@ class BaseSniffingFlow(FlowHandler):
                 if port.manufacturer
                 else ""
             )
-            #asyncio.create_task(self.run_loop())
-            
-            #return self.async_create_entry(
-            #title="Title of the entry",
-            #data={
+            # asyncio.create_task(self.run_loop())
+
+            # return self.async_create_entry(
+            # title="Title of the entry",
+            # data={
             #    "something_special": "pippo"
-            #},
-            #)
-            
+            # },
+            # )
+
             return await self.async_step_choose_formation_strategy()
 
         # Pre-select the currently configured port
@@ -112,15 +117,17 @@ class BaseSniffingFlow(FlowHandler):
         return self.async_show_form(step_id="choose_serial_port", data_schema=schema)
 
     async def run_loop(self):
-        path = None # "/home/antonio/Desktop/acquisizioni/acquired_test/test_py/t3.pcap"
-        hardware = None #"cc2531"
-        devstring = None #2:9 Bus:ID
-    
-        dump=zbDump(channel=11,pcapfile=path)
+        path = (
+            None  # "/home/antonio/Desktop/acquisizioni/acquired_test/test_py/t3.pcap"
+        )
+        hardware = None  # "cc2531"
+        devstring = None  # 2:9 Bus:ID
+
+        dump = zbDump(channel=11, pcapfile=path)
         dump.capture()
-        
+
         return True
-    
+
     async def async_step_choose_formation_strategy(
         self, user_input: dict[str, Any] | None = None
     ) -> FlowResult:
@@ -132,7 +139,7 @@ class BaseSniffingFlow(FlowHandler):
                 OPTIONS_INTENT_RECONFIGURE,
                 OPTIONS_INTENT_MIGRATE,
             ],
-        ) 
+        )
 
 
 class ConfigFlow(BaseSniffingFlow, config_entries.ConfigFlow, domain=DOMAIN):
@@ -140,14 +147,16 @@ class ConfigFlow(BaseSniffingFlow, config_entries.ConfigFlow, domain=DOMAIN):
 
     VERSION = 1
 
-    async def async_step_user(self, user_input: dict[str, Any] | None = None) -> FlowResult:
+    async def async_step_user(
+        self, user_input: dict[str, Any] | None = None
+    ) -> FlowResult:
         """Handle 15.4 forensic config flow start"""
-        
+
         if self._async_current_entries():
             return self.async_abort(reason="single_instance_allowed")
 
         return await self.async_step_choose_serial_port(user_input)
-    
+
     async def async_step_usb(self, discovery_info: usb.UsbServiceInfo) -> FlowResult:
         """Handle USB Discovery."""
         device = discovery_info.device
