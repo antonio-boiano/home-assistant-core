@@ -1,0 +1,3 @@
+[submodule "home-assistant-forensics"]
+	path = home-assistant-forensics
+	url = git@github.com:antonio-boiano/home-assistant-forensics.git
